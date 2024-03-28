@@ -1,0 +1,49 @@
+// R-Format:
+
+SLL rd,rt,sa	    000000	rs    	rt    	rd    	sa	    000000
+SRL rd,rt,sa	    000000	rs    	rt    	rd    	sa    	000010
+SLLV rd,rt,rs	    000000	rs    	rt    	rd    	00000	000100
+SRLV rd,rt,rs	    000000	rs    	rt    	rd    	00000	000110
+JR rs	            000000	rs	    00000   00000   00000	001000
+SYSCALL	            000000	00000   00000   00000   00000	001100
+MFHI rd	            000000	00000   00000	rd	    00000	010000
+MTHI rs	            000000	rs	    00000   00000   00000	010001
+MFLO rd	            000000	00000   00000	rd	    00000	010010
+MTLO rs	            000000  rs      00000   00000   00000   010011
+MULT rs,rt	        000000	rs	    rt	    00000   00000	011000    
+DIV rs,rt	        000000	rs	    rt	    00000   00000	011010
+ADD rd,rs,rt	    000000	rs    	rt    	rd    	00000	100000
+SUB rd,rs,rt	    000000	rs    	rt    	rd    	00000	100010
+AND rd,rs,rt	    000000	rs    	rt    	rd    	00000	100100
+OR rd,rs,rt	        000000	rs    	rt    	rd    	00000	100101
+XOR rd,rs,rt	    000000	rs    	rt    	rd    	00000	100110
+NOR rd,rs,rt	    000000	rs    	rt    	rd    	00000	100111
+SLT rd,rs,rt	    000000	rs    	rt    	rd    	00000	101010
+
+
+// I-Format:
+BLTZ rs,offset	    000001	rs	    00000	offset
+BGEZ rs,offset	    000001	rs	    00001	offset
+BEQ rs,rt,offset    000100	rs	    rt	    offset
+BNE rs,rt,offset    000101	rs	    rt    	offset
+BLEZ rs,offset	    000110	rs	    00000	offset
+BGTZ rs,offset	    000111	rs	    00000	offset
+ADDI rt,rs,imm	    001000	rs	    rt	    imm
+SLTI rt,rs,imm	    001010	rs	    rt	    imm
+ANDI rt,rs,imm	    001100	rs	    rt	    imm
+ORI rt,rs,imm	    001101	rs	    rt	    imm
+XORI rt,rs,imm	    001110	rs	    rt	    imm
+LUI rt,imm	        001111	rs	    rt	    imm
+LB rt,offset(rs)    100000	rs    	rt    	offset
+LH rt,offset(rs)    100001	rs    	rt    	offset
+LW rt,offset(rs)    100011	rs    	rt    	offset
+SB rt,offset(rs)    101000	rs    	rt    	offset
+SH rt,offset(rs)    101001	rs    	rt    	offset
+SW rt,offset(rs)    101011	rs    	rt    	offset
+
+
+// J-Format:
+J target	        000010	target
+
+
+Source: https://opencores.org/projects/plasma/opcodes
